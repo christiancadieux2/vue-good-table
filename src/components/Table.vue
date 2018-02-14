@@ -111,6 +111,12 @@
               </slot>
               <slot name="table-row-after" :row="row" :index="index"></slot>
             </tr>
+            <tr v-if="row['extra']">
+              <td colspan="2"></td>
+              <td>
+                <span v-html="collect(row, 'extra')"></span>
+              </td>
+            </tr>
             <tr v-if="processedRows.length === 0">
               <td :colspan="columns.length">
                 <slot name="emptystate">
